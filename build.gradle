@@ -12,8 +12,28 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation group: "io.nanovc",
+            name: "nanovc-memory",
+            version: "0.0.8"
+
+    implementation 'com.konghq:unirest-java:3.11.09'
+    implementation 'com.konghq:unirest-objectmapper-jackson:3.11.09'
 }
 
 test {
     useJUnitPlatform()
+}
+
+
+sourceCompatibility = 16
+targetCompatibility = 16
+
+
+// Set the encoding:
+// https://stackoverflow.com/questions/21267234/show-utf-8-text-properly-in-gradle
+// https://stackoverflow.com/a/34717160/231860
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
